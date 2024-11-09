@@ -18,6 +18,18 @@ def get_number_of_turtles():
                 print("Pleaser enter a number within the range 2-10.\n")
         except ValueError:
             print("Enter a number (2-10).\n")
+# Race function
+def race(colors):
+    turtles = create_turtles(colors)
+    # Race
+    while True:
+        for racer in turtles:
+            distance = random.randrange(1, 20)
+            racer.forward(distance)
+            # Get y position to determine if winner
+            x, y = racer.pos()
+            if y >= HEIGHT // 2 - 10:
+                return colors[turtles.index(racer)]
 
 # Create turtles
 def create_turtles(colors):
@@ -43,12 +55,12 @@ def init_turtle():
 def main():
     racers = get_number_of_turtles()
     init_turtle()
-
     # Get colors for racers
     random.shuffle(COLORS)
     colors = COLORS[:racers]
+    winner = race(colors)
+    print(f"The winner is: {winner.capitalize()}!")
+    time.sleep(3)
     
-    create_turtles(colors)
-    time.sleep(5)
 if __name__ == "__main__":
     main()
