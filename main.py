@@ -1,7 +1,11 @@
 import turtle
+import time
+import random
 
 # Window dimensions
 WIDTH, HEIGHT = 500, 500
+# Possible colors for racers
+COLORS = ["green", "red", "blue", "yellow", "black", "cyan", "pink", "purple", "brown", "oranage"]
 
 # Get # of racers
 def get_number_of_turtles():
@@ -25,5 +29,9 @@ def main():
     racers = get_number_of_turtles()
     init_turtle()
 
+    # Get colors for racers
+    random.shuffle(COLORS)
+    colors = COLORS[:racers]
+    print(colors)
 if __name__ == "__main__":
     main()
