@@ -60,7 +60,7 @@ def main():
     colors = COLORS[:racers]
     winner = race(colors)
     print(f"The winner is: {winner.capitalize()}!")
-    time.sleep(3)
+    time.sleep(5) # Give users time to view results
     
 if __name__ == "__main__":
     main()
