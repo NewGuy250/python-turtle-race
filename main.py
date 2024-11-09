@@ -32,6 +32,7 @@ def create_turtles(colors):
         racer.setpos(-WIDTH//2 + (i + 1) * spacingx, -HEIGHT//2 + 20) # Move turtle into right position
         racer.pendown()
         turtles.append(racer)
+    return turtles
 
 # Function to display window
 def init_turtle():
