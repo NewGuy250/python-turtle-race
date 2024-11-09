@@ -5,7 +5,7 @@ import random
 # Window dimensions
 WIDTH, HEIGHT = 500, 500
 # Possible colors for racers
-COLORS = ["green", "red", "blue", "yellow", "black", "cyan", "pink", "purple", "brown", "oranage"]
+COLORS = ["green", "red", "blue", "yellow", "black", "cyan", "pink", "purple", "brown", "orange"]
 
 # Get # of racers
 def get_number_of_turtles():
@@ -18,6 +18,20 @@ def get_number_of_turtles():
                 print("Pleaser enter a number within the range 2-10.\n")
         except ValueError:
             print("Enter a number (2-10).\n")
+
+# Create turtles
+def create_turtles(colors):
+    turtles = []
+    spacingx = WIDTH // (len(colors) + 1)
+    for i, color in enumerate(colors):
+        racer = turtle.Turtle()
+        racer.color(color) # Get color
+        racer.shape("turtle") # Get shape
+        racer.left(90) # Make sure the turtle is racing upwards
+        racer.penup()
+        racer.setpos(-WIDTH//2 + (i + 1) * spacingx, -HEIGHT//2 + 20) # Move turtle into right position
+        racer.pendown()
+        turtles.append(racer)
 
 # Function to display window
 def init_turtle():
@@ -32,6 +46,8 @@ def main():
     # Get colors for racers
     random.shuffle(COLORS)
     colors = COLORS[:racers]
-    print(colors)
+    
+    create_turtles(colors)
+    time.sleep(5)
 if __name__ == "__main__":
     main()
